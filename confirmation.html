@@ -2,27 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Loan Application Submitted</title>
+  <title>Loan Confirmation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main>
-<div class="floating-box">
-  <h1>🎉 Application Received!</h1>
-  <p>Thank you for applying. Your loan request has been submitted successfully.</p>
-  <p><strong>Transaction ID:</strong> <span id="txnId"></span></p>
-  <p>We’ll review your details and contact you soon.</p>
+    <div class="floating-box">
+      <h1>🎉 Application Received!</h1>
+      <p id="details"></p>
 
-  <button class="apply-btn" onclick="location.href='apply.html'">Apply Another Loan</button>
-  <button class="login-btn" onclick="location.href='index.html'">Back to Home</button>
-</div>
+      <button class="apply-btn" onclick="location.href='apply.html'">Apply Another Loan</button>
+      <button class="login-btn" onclick="location.href='index.html'">Back to Home</button>
+    </div>
+  </main>
 
-<script>
-  const params = new URLSearchParams(window.location.search);
-  document.getElementById("txnId").textContent = params.get("id");
-</script>
+  <script>
+    // Parse query parameters
+    const params = new URLSearchParams(window.location.search);
+    const transactionId = params.get("id");
+    const name = params.get("name");
+    const type = params.get("type");
+    const amount = params.get("amount");
 
+    document.getElementById("details").innerHTML = `
+      Thank you, <b>${name}</b>!<br>
+      Your <b>${type}</b> loan application for <b>₱${amount}</b> has been submitted.<br>
+      Transaction ID: <b>${transactionId}</b>
+    `;
+  </script>
 
   <footer>
     <p class="footnote">
@@ -30,6 +37,5 @@
       <img src="image/prismtechph-logo.png" alt="PRISM Tech Logo" class="footer-logo"> PRISM Tech PH
     </p>
   </footer>
-
 </body>
 </html>
