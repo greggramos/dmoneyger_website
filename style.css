@@ -29,16 +29,16 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 0 20px 60px;
-  max-width: 360px;
+  max-width: 360px;   /* fixed width */
   margin: 40px auto;
   text-align: center;
   backdrop-filter: blur(6px);
 
-  /* Dual-tone shadow */
   box-shadow: 
-    8px 10px 18px rgba(251, 176, 64, 0.6),   /* gold glow */
-    0 18px 30px rgba(0, 76, 151, 0.5);     /* blue depth */
+    8px 10px 18px rgba(251, 176, 64, 0.6), 
+    0 18px 30px rgba(0, 76, 151, 0.5);
 }
+
 
 /* Logo + Heading Block */
 .logo-heading {
@@ -170,6 +170,45 @@ h4::after {
   background-color: var(--gray);
 }
 
+.apply-btn {
+  background-color: var(--green);
+  color: white;
+  font-family: var(--font-head);
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.apply-btn:hover {
+  background-color: var(--blue);
+}
+
+.loan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.loan-form label {
+  font-family: var(--font-head);
+  font-size: 0.9rem;
+  color: var(--blue);
+  text-align: left;
+}
+
+.loan-form input, .loan-form select {
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: 6px;
+  font-family: var(--font-body);
+}
+
+
 /* Footer */
 footer {
   color: #fff;
@@ -181,3 +220,34 @@ footer {
   width: auto;
   vertical-align: bottom;
 }
+
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;   /* wrap on mobile */
+}
+
+.badge {
+  font-size: 0.85rem;
+  color: white;
+  background: black;   /* subtle gold tint */
+  border: 1px solid var(--gold);
+  border-radius: 10px;                    /* pill shape */
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+.badge i {
+  color: var(--gold);
+}
+
+.badge:hover {
+  background: var(--gold);
+  color: black;
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Loan - D'Moneyger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="floating-box">
+            <h1>Apply for a Loan</h1>
+            <form class="loan-form" id="loanForm">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+                
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+                
+                <label for="contact">Contact No.</label>
+                <input type="tel" id="contact" name="contact" required>
+                
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required>
+                
+                <label for="amount">Loan Amount</label>
+                <input type="number" id="amount" name="amount" required>
+                
+                <label for="type">Loan Type</label>
+                <select id="type" name="type" required>
+                    <option value="personal">Personal Loan</option>
+                    <option value="business">Business Loan</option>
+                    <option value="emergency">Emergency Loan</option>
+                </select>
+
+        <button type="submit" class="signup-btn">Submit Application</button>
+        <button type="submit" class="signup-btn" onclick="location.href='index.html'">Home</button>
+            </form>
+        </div>
+
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyeD_iZDP6X1rYCbdH9djQN1txcBWWV3EeRGYDgvZjbSSWiqcrZuDmG_80BlLFoeag/exec";
+  const form = document.getElementById("loanForm");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    // Generate Transaction ID (e.g., LOAN-20260806-XYZ123)
+    const transactionId = "LOAN-" + Date.now().toString().slice(-6) + "-" + Math.random().toString(36).substring(2, 7).toUpperCase();
+
+    const data = {
+      firstName: form.firstName.value,
+      lastName: form.lastName.value,
+      contact: form.contact.value,
+      address: form.address.value,
+      amount: form.amount.value,
+      type: form.type.value,
+      transactionId: transactionId
+    };
+
+    fetch(scriptURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(text => {
+      if (text.includes("Success")) {
+        window.location.href = "confirmation.html?id=" + transactionId;
+      } else {
+        alert("Server error: " + text);
+      }
+    })
+    .catch(err => alert("Error: " + err));
+  });
+</script>
+
+    </main>
+
+    <footer>
+    <p class="footnote">
+        <b>Powered by:</b> 
+        <img src="image/prismtechph-logo.png" alt="PRISM Tech Logo" class="footer-logo"> PRISM Tech PH
+    </p>
+    <div class="trust-badges">
+        <span class="badge"><i class="fas fa-lock"></i> SSL Secure</span>
+        <span class="badge"><i class="fas fa-handshake"></i> Trusted Partner</span>
+        <span class="badge"><i class="fas fa-shield-alt"></i> Verified Loans</span>
+    </div>
+    </footer>
+
+</body>
+</html>
