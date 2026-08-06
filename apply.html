@@ -41,39 +41,31 @@
         </div>
 
 <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbzG_w4Gjx512LE2LRQFzSbvgbIBt7iAjn1IG_CjxudVyxw_Lu_WqnKZnt_HPgFO158y/exec";
-  const form = document.getElementById("loanForm");
 
-  form.addEventListener("submit", e => {
-    e.preventDefault();
+const scriptURL = "https://script.google.com/macros/s/AKfycbwNPqwLsjUO0zSFvIole8Fyd_V9BpHoADusrPbi_iNAIkTiGRmsZLebrDUGvZpUmRnG/exec";
+const form = document.getElementById("loanForm");
 
-    // Generate Transaction ID (e.g., LOAN-20260806-XYZ123)
-    const transactionId = "LOAN-" + Date.now().toString().slice(-6) + "-" + Math.random().toString(36).substring(2, 7).toUpperCase();
+form.addEventListener("submit", e => {
+  e.preventDefault();
 
-    const data = {
-      firstName: form.firstName.value,
-      lastName: form.lastName.value,
-      contact: form.contact.value,
-      address: form.address.value,
-      amount: form.amount.value,
-      type: form.type.value,
-      transactionId: transactionId
-    };
+  const transactionId = "LOAN-" + Date.now().toString().slice(-6) + "-" +
+    Math.random().toString(36).substring(2, 7).toUpperCase();
 
-    const formData = new FormData(form);
-    formData.append("transactionId", transactionId);
+  const formData = new FormData(form);
+  formData.append("transactionId", transactionId);
 
-fetch(scriptURL, { method: "POST", body: formData })
-  .then(res => res.text())
-  .then(text => {
-    if (text.includes("Success")) {
-      window.location.href = "confirmation.html?id=" + transactionId;
-    } else {
-      alert("Server error: " + text);
-    }
-  })
-  .catch(err => alert("Error: " + err));
-));
+  fetch(scriptURL, { method: "POST", body: formData })
+    .then(res => res.text())
+    .then(text => {
+      if (text.includes("Success")) {
+        window.location.href = "confirmation.html?id=" + transactionId;
+      } else {
+        alert("Server error: " + text);
+      }
+    })
+    .catch(err => alert("Error: " + err));
+});
+
 </script>
 
 </main>
