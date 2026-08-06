@@ -42,7 +42,7 @@
         </div>
 
 <script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwygm2csOceqZSUxZXmVx9dOgvzglKr5OcIyqaw3gSpdjrlRemW9AUd2YjQAQyQdZ-G/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzG_w4Gjx512LE2LRQFzSbvgbIBt7iAjn1IG_CjxudVyxw_Lu_WqnKZnt_HPgFO158y/exec";
   const form = document.getElementById("loanForm");
 
   form.addEventListener("submit", e => {
@@ -61,23 +61,21 @@
       transactionId: transactionId
     };
 
-    fetch(scriptURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.text())
-    .then(text => {
-      if (text.includes("Success")) {
-        window.location.href = "confirmation.html?id=" + transactionId;
-      } else {
-        alert("Server error: " + text);
-      }
-    })
-    .catch(err => alert("Error: " + err));
-  });
+    const formData = new FormData(form);
+    formData.append("transactionId", transactionId);
+
+fetch(scriptURL, { method: "POST", body: formData })
+  .then(res => res.text())
+  .then(text => {
+    if (text.includes("Success")) {
+      window.location.href = "confirmation.html?id=" + transactionId;
+    } else {
+      alert("Server error: " + text);
+    }
+  })
+  .catch(err => alert("Error: " + err));
+
+
 </script>
 
     </main>
