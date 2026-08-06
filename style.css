@@ -1,4 +1,4 @@
-/* ===== Mobile-First Dark Layout ===== */
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +29,7 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   padding: 0 20px 60px;
-  max-width: 360px;   /* fixed width */
+  max-width: 360px;
   margin: 40px auto;
   text-align: center;
   backdrop-filter: blur(6px);
@@ -38,7 +38,6 @@ html, body {
     8px 10px 18px rgba(251, 176, 64, 0.6), 
     0 18px 30px rgba(0, 76, 151, 0.5);
 }
-
 
 /* Logo + Heading Block */
 .logo-heading {
@@ -70,28 +69,27 @@ h4 {
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 10px;
-  position: relative;          /* allow underline pseudo-element */
-  display: inline-block;       /* shrink underline to text width */
+  position: relative;
+  display: inline-block;
 }
 
 h4::after {
   content: "";
   display: block;
-  width: 60%;                  /* underline length (adjustable) */
-  height: 2px;                 /* thin line */
+  width: 60%;
+  height: 2px;
   background-color: var(--gold);
-  margin: 6px auto 0;          /* spacing below text */
-  border-radius: 2px;          /* smooth edges */
+  margin: 6px auto 0;
+  border-radius: 2px;
 }
-
 
 .floating-box .p1 {
   font-size: 1.8rem;
   line-height: 1.5;
   font-style: italic;
   margin-top: 30px;
-  animation: blinkText 1.2s infinite;   /* 1s cycle, repeats forever */
-  color: red;                         /* keep your chosen color */
+  animation: blinkText 1.2s infinite;
+  color: red;
 }
 @keyframes blinkText {
   0%   { opacity: 1; }
@@ -243,7 +241,7 @@ h1 {
 .card i {
   font-size: 2.5rem;
   margin-bottom: 12px;
-  color: #ffd700; /* gold accent */
+  color: #ffd700;
 }
 
 .card h3 {
@@ -262,8 +260,6 @@ h1 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-
-
 /* Footer */
 footer {
   color: #fff;
@@ -281,15 +277,15 @@ footer {
   justify-content: center;
   gap: 16px;
   margin-top: 12px;
-  flex-wrap: wrap;   /* wrap on mobile */
+  flex-wrap: wrap;
 }
 
 .badge {
   font-size: 0.85rem;
   color: white;
-  background: black;   /* subtle gold tint */
+  background: black;
   border: 1px solid var(--gold);
-  border-radius: 10px;                    /* pill shape */
+  border-radius: 10px;
   padding: 6px 14px;
   display: flex;
   align-items: center;
@@ -305,4 +301,3 @@ footer {
   background: var(--gold);
   color: black;
 }
-
