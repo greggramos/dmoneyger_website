@@ -1,13 +1,15 @@
 // ==================== Application Script ====================
-const scriptURL = "https://script.google.com/macros/s/AKfycbwNPqwLsjUO0zSFvIole8Fyd_V9BpHoADusrPbi_iNAIkTiGRmsZLebrDUGvZpUmRnG/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbxHpkY8M1Z87_t-ZXrHqpFGHoQWAPpGPmigvgNIDpILIj39zFQ71zm0sFdHZIbjDJ4/exec";
 const form = document.getElementById("loanForm");
 
 if (form) {
   form.addEventListener("submit", e => {
     e.preventDefault();
 
-    const transactionId = "LOAN-" + Date.now().toString().slice(-6) + "-" +
-      Math.random().toString(36).substring(2, 7).toUpperCase();
+//    const transactionId = "LOAN-" + Date.now().toString().slice(-6) + "-" +
+//      Math.random().toString(36).substring(2, 7).toUpperCase();
+  
+    const transactionId = "LOAN-" + Date.now().toString().slice(-6);
 
     const formData = new FormData(form);
     formData.append("transactionId", transactionId);
@@ -19,8 +21,9 @@ if (form) {
           window.location.href = "confirmation.html?id=" + transactionId +
             "&firstName=" + encodeURIComponent(form.firstName.value) +
             "&lastName=" + encodeURIComponent(form.lastName.value) +
-            "&type=" + encodeURIComponent(form.type.value) +
-            "&amount=" + encodeURIComponent(form.amount.value);
+            "&type=" + encodeURIComponent(form.loantype.value) +
+            "&amount=" + encodeURIComponent(form.loanAmount.value) +
+            "&status=Pending Review";
         } else {
           alert("Server error: " + text);
         }
@@ -28,16 +31,3 @@ if (form) {
       .catch(err => alert("Error: " + err));
   });
 }
-
-// ==================== Confirmation Script ====================
-function populateSummary() {
-  const params = new URLSearchParams(window.location.search);
-  if (document.getElementById("transactionId")) {
-    document.getElementById("transactionId").textContent = params.get("id");
-    document.getElementById("name").textContent = (params.get("firstName") || "") + " " + (params.get("lastName") || "");
-    document.getElementById("type").textContent = params.get("type") || "";
-    document.getElementById("amount").textContent = params.get("amount") || "";
-  }
-}
-
-window.onload = populateSummary;

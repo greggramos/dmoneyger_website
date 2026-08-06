@@ -31,8 +31,8 @@
             <label for="address">Address</label>
             <input type="text" id="address" name="address" required>
 
-            <label for="type">Loan Type</label>
-            <select id="type" name="type" required>
+            <label for="loantype">Loan Type</label>
+            <select id="loantype" name="loantype" required>
                 <option value="Personal">Personal Loan</option>
                 <option value="Business">Business Loan</option>
                 <option value="Emergency">Emergency Loan</option>
@@ -41,12 +41,12 @@
         <!-- Loan Amount + Payment Terms Row -->
         <div class="form-row">
             <div class="form-group">
-                <label for="amount">Loan Amount</label>
-                <input type="number" id="amount" name="amount" required>
+                <label for="loanAmount">Loan Amount</label>
+                <input type="number" id="loanAmount" name="loanAmount" required>
             </div>
             <div class="form-group">
-                <label for="loanTerm">Payment Terms</label>
-                <select id="loanTerm" name="loanTerm" required>
+                <label for="loanTerms">Payment Terms</label>
+                <select id="loanTerms" name="loanTerms" required>
                 <option value="6">6 months</option>
                 <option value="12">12 months</option>
                 <option value="24">24 months</option>
@@ -56,14 +56,16 @@
 
         <!-- Upload Requirements -->
                 <label for="idPicture">Upload ID Picture</label>
-                <input type="file" id="idPicture" name="idPicture" accept="image/*" required>
+              <!--  <input type="file" id="idPicture" name="idPicture" accept="image/*" required>  -->
+                <input type="file" id="idPicture" name="idPicture" accept="image/*">
 
                 <label for="walletScreenshot">Upload Wallet Screenshot</label>
-                <input type="file" id="walletScreenshot" name="walletScreenshot" accept="image/*" required>
+               <!--  <input type="file" id="walletScreenshot" name="walletScreenshot" accept="image/*" required> -->
+                <input type="file" id="walletScreenshot" name="walletScreenshot" accept="image/*">
 
         <div class="auth-buttons">
-          <button type="submit" class="signup-btn">Submit Application</button>
-          <button type="button" class="home-btn" onclick="location.href='index.html'">Cancel</button>
+          <button type="submit" class="signup-btn">SUBMIT APPLICATION</button>
+          <button type="button" class="home-btn" onclick="location.href='index.html'">CANCEL</button>
         </div>
       </form>
     </div>

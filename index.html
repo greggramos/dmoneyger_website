@@ -24,8 +24,26 @@
       <p class="p2"> MADALI • MABILIS • SIGURADO</p>
     <div class="auth-buttons" id="apply">
       <button class="signup-btn" onclick="location.href='apply.html'"">APPLY LOAN</button>
-      <button class="home-btn" onclick="location.href='loans.html'">LOANS TYPE</button>
+      <button class="home-btn" onclick="location.href='loans.html'">LOAN TYPE</button>
     </div>
+  
+    <!-- View Status Section -->
+    <div class="loan-status">
+    <!--  <h1 class="loan-heading">Loan Status</h1> -->
+    <h3>Enter your Transaction ID:</h3>
+
+    <div class="status-box">
+      <input type="text" id="txnInput" value="LOAN-" maxlength="11">
+      <button class="signup-btn" onclick="lookupStatus()">View Status</button>
+    </div>
+
+
+    <div class="status-box">
+      <p><strong>Loan Number:</strong> <span id="transactionId"></span></p>
+      <p><strong>Status:</strong> <span id="status"></span></p>
+      <p><strong>Next Payment Due:</strong> <span id="nextPayment"></span></p>
+    </div>
+  </div>
 
 <!-- Features Section -->
   <div class="features">
@@ -50,5 +68,6 @@
   </div>
 </footer>
 
+<script src="loanstatus.js" defer></script>
 </body>
 </html>

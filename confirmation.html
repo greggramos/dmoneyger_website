@@ -16,23 +16,25 @@
       <h1>🎉 Application Received!</h1>
     </div>
     <h4>
-      Thank you for applying with <b>D'Moneyger</b> Loan Services <br>
-      Your request has been recorded successfully.
+      Thank you for applying with <b>D'Moneyger</b> Loan Services. <br>
     </h4>
 
-    <!-- Confirmation Summary -->
-    <div class="summary-card">
-      <p><b>Transaction ID:</b> <span id="transactionId"></span></p>
-      <p><b>Name:</b> <span id="firstName"></span></p>
-      <p><b>Loan Type:</b> <span id="type"></span></p>
-      <p><b>Amount:</b> ₱<span id="amount"></span></p>
-    </div>
+      <!-- Loan Summary (hidden by default) -->
+      <div class="summary-card" id="loanSummary" style="display:none;">
+        <h3>Loan Summary</h3>
+        <p><strong>Loan Number:</strong> <span id="transactionId"></span></p>
+        <p><strong>Client Name:</strong> <span id="name"></span></p>
+        <p><strong>Loan Type:</strong> <span id="type"></span></p>
+        <p><strong>Loan Amount:</strong> ₱<span id="amount"></span></p>
+        <p><strong>Status:</strong> <span id="status"></span></p>
+      </div>
 
-    <!-- Action Buttons -->
-    <div class="auth-buttons">
-      <button class="signup-btn" onclick="location.href='apply.html'">Apply Another Loan</button>
-      <button class="home-btn" onclick="location.href='index.html'">Back to Home</button>
-    </div>
+      <!-- Action Buttons -->
+      <div class="auth-buttons">
+        <button class="signup-btn" onclick="showSummary()">VIEW APPLICATION</button>
+        <button class="home-btn" onclick="location.href='index.html'">BACK HOME</button>
+      </div>
+
 
     <!-- Contact Us Section -->
     <div class="contact-box">
@@ -56,6 +58,6 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="confirmation.js"></script>
 </body>
 </html>
