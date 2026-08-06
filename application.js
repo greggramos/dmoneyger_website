@@ -31,3 +31,17 @@ if (form) {
       .catch(err => alert("Error: " + err));
   });
 }
+
+document.getElementById("loanAmount").addEventListener("input", function(e) {
+    // Remove everything except numbers
+    let value = e.target.value.replace(/[^0-9]/g, "");
+    
+    if (value) {
+        // Format with commas
+        value = parseInt(value).toLocaleString("en-PH");
+        // Add peso sign
+        e.target.value = "₱" + value;
+    } else {
+        e.target.value = "";
+    }
+});

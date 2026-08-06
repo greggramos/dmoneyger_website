@@ -6,6 +6,7 @@
   <title>Apply Loan - D'Moneyger</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
 </head>
 <body>
   <main>
@@ -42,9 +43,10 @@
         <div class="form-row">
             <div class="form-group">
                 <label for="loanAmount">Loan Amount</label>
-                <input type="number" id="loanAmount" name="loanAmount" required>
+                <input type="text" id="loanAmount" name="loanAmount" placeholder="₱0.00" required>
             </div>
-            <div class="form-group">
+
+        <div class="form-group">
                 <label for="loanTerms">Payment Terms</label>
                 <select id="loanTerms" name="loanTerms" required>
                 <option value="6">6 months</option>
@@ -83,6 +85,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="application.js"></script>
 </body>
 </html>
