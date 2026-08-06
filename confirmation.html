@@ -2,39 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Loan Confirmation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Confirmation - D'Moneyger</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="image/logo.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <main>
-    <div class="floating-box">
+<main>
+  <div class="floating-box">
+    <div class="logo-heading">
+      <img src="image/dmoneyger-logo.png" alt="D'Moneyger Logo" class="main-logo">
       <h1>🎉 Application Received!</h1>
-      <p id="details"></p>
+    </div>
+    <h4>
+      Thank you for applying with <b>D'Moneyger</b> Loan Services <br>
+      Your request has been recorded successfully.
+    </h4>
 
-      <button class="apply-btn" onclick="location.href='apply.html'">Apply Another Loan</button>
+    <!-- Confirmation Summary -->
+    <div class="summary-card">
+      <p><b>Transaction ID:</b> <span id="transactionId"></span></p>
+      <p><b>Name:</b> <span id="firstName"></span></p>
+      <p><b>Loan Type:</b> <span id="type"></span></p>
+      <p><b>Amount:</b> ₱<span id="amount"></span></p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="auth-buttons">
+      <button class="signup-btn" onclick="location.href='apply.html'">Apply Another Loan</button>
       <button class="login-btn" onclick="location.href='index.html'">Back to Home</button>
     </div>
-  </main>
 
-  <script>
-    // Parse query parameters
-    const params = new URLSearchParams(window.location.search);
-    const transactionId = params.get("id");
-    const name = params.get("name");
-    const type = params.get("type");
-    const amount = params.get("amount");
+    <!-- Contact Us Section -->
+    <div class="contact-box">
+      <h3>📞 Contact Us</h3>
+      <p><b>Phone:</b> <a href="tel:+639123456789">+63 912 345 6789</a></p>
+      <p><b>Email:</b> <a href="mailto:support@dmoneyger.com">support@dmoneyger.ph</a></p>
+      <p><b>Address:</b> City of Malolos, Bulacan, Philippines</p>
+    </div>
+  </div>
+</main>
 
-    document.getElementById("details").innerHTML = `
-      Thank you, <b>${name}</b>!<br>
-      Your <b>${type}</b> loan application for <b>₱${amount}</b> has been submitted.<br>
-      Transaction ID: <b>${transactionId}</b>;
-  </script>
+<footer>
+  <p class="footnote">
+    <b>Powered by:</b> 
+    <img src="image/prismtechph-logo.png" alt="PRISM Tech Logo" class="footer-logo"> PRISM Tech PH
+  </p>
+  <div class="trust-badges">
+    <span class="badge"><i class="fas fa-lock"></i> SSL Secure</span>
+    <span class="badge"><i class="fas fa-handshake"></i> Trusted Partner</span>
+    <span class="badge"><i class="fas fa-shield-alt"></i> Verified Loans</span>
+  </div>
+</footer>
 
-  <footer>
-    <p class="footnote">
-      <b>Powered by:</b> 
-      <img src="image/prismtechph-logo.png" alt="PRISM Tech Logo" class="footer-logo"> PRISM Tech PH
-    </p>
-  </footer>
+<script>
+const params = new URLSearchParams(window.location.search);
+document.getElementById("transactionId").textContent = params.get("id");
+document.getElementById("name").textContent = params.get("firstName") + " " + params.get("lastName");
+document.getElementById("type").textContent = params.get("type");
+document.getElementById("amount").textContent = params.get("amount");
+</script>
+
 </body>
 </html>

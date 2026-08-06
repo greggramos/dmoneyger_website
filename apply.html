@@ -30,9 +30,9 @@
                 
                 <label for="type">Loan Type</label>
                 <select id="type" name="type" required>
-                    <option value="personal">Personal Loan</option>
-                    <option value="business">Business Loan</option>
-                    <option value="emergency">Emergency Loan</option>
+                    <option value="Personal">Personal Loan</option>
+                    <option value="Business">Business Loan</option>
+                    <option value="Emergency">Emergency Loan</option>
                 </select>
 
         <button type="submit" class="signup-btn">Submit Application</button>
@@ -58,7 +58,11 @@ form.addEventListener("submit", e => {
     .then(res => res.text())
     .then(text => {
       if (text.includes("Success")) {
-        window.location.href = "confirmation.html?id=" + transactionId;
+        window.location.href = "confirmation.html?id=" + transactionId +
+        "&firstName=" + encodeURIComponent(form.firstName.value) +
+        "&lastName=" + encodeURIComponent(form.lastName.value) +
+        "&type=" + encodeURIComponent(form.type.value) +
+        "&amount=" + encodeURIComponent(form.amount.value);
       } else {
         alert("Server error: " + text);
       }
