@@ -1,59 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply Loan - D'Moneyger</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply Loan - D'Moneyger</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <main>
-        <div class="floating-box">
-            <h1 class="loan-heading">Loan Application</h1>
-            <p>Fill-up the details below.</p>
-            <form class="loan-form" id="loanForm">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required>
-                
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required>
-                
-                <label for="contact">Contact No.</label>
-                <input type="tel" id="contact" name="contact" required>
-                
-                <label for="address">Address</label>
-                <input type="text" id="address" name="address" required>
-                
-                <label for="amount">Loan Amount</label>
-                <input type="number" id="amount" name="amount" required>
-                
-                <label for="type">Loan Type</label>
-                <select id="type" name="type" required>
-                    <option value="Personal">Personal Loan</option>
-                    <option value="Business">Business Loan</option>
-                    <option value="Emergency">Emergency Loan</option>
-                </select>
-
-        <button type="submit" class="signup-btn">Submit Application</button>
-        <button type="submit" class="signup-btn" onclick="location.href='index.html'">Cancel</button>
-            </form>
+  <main>
+    <div class="floating-box">
+      <h1 class="loan-heading">Loan Application</h1>
+      <p>Fill-up the details below.</p>
+      <form class="loan-form" id="loanForm">
+        <!-- Name Row -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
         </div>
 
-</main>
+            <label for="contact" class="">Contact No.</label>
+            <input type="tel" id="contact" name="contact" required>
 
-    <footer>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="type">Loan Type</label>
+            <select id="type" name="type" required>
+                <option value="Personal">Personal Loan</option>
+                <option value="Business">Business Loan</option>
+                <option value="Emergency">Emergency Loan</option>
+        </select>
+
+        <!-- Loan Amount + Payment Terms Row -->
+        <div class="form-row">
+            <div class="form-group">
+                <label for="amount">Loan Amount</label>
+                <input type="number" id="amount" name="amount" required>
+            </div>
+            <div class="form-group">
+                <label for="loanTerm">Payment Terms</label>
+                <select id="loanTerm" name="loanTerm" required>
+                <option value="6">6 months</option>
+                <option value="12">12 months</option>
+                <option value="24">24 months</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Upload Requirements -->
+                <label for="idPicture">Upload ID Picture</label>
+                <input type="file" id="idPicture" name="idPicture" accept="image/*" required>
+
+                <label for="walletScreenshot">Upload Wallet Screenshot</label>
+                <input type="file" id="walletScreenshot" name="walletScreenshot" accept="image/*" required>
+
+        <div class="auth-buttons">
+          <button type="submit" class="signup-btn">Submit Application</button>
+          <button type="button" class="home-btn" onclick="location.href='index.html'">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
     <p class="footnote">
-        <b>Powered by:</b> 
-        <img src="image/prismtechph-logo.png" alt="PRISM Tech Logo" class="footer-logo"> PRISM Tech PH
+      <b>Powered by:</b> 
+      <img src="image/prismtechph-logo.png" alt="PRISM Tech Logo" class="footer-logo"> PRISM Tech PH
     </p>
     <div class="trust-badges">
-        <span class="badge"><i class="fas fa-lock"></i> SSL Secure</span>
-        <span class="badge"><i class="fas fa-handshake"></i> Trusted Partner</span>
-        <span class="badge"><i class="fas fa-shield-alt"></i> Verified Loans</span>
+      <span class="badge"><i class="fas fa-lock"></i> SSL Secure</span>
+      <span class="badge"><i class="fas fa-handshake"></i> Trusted Partner</span>
+      <span class="badge"><i class="fas fa-shield-alt"></i> Verified Loans</span>
     </div>
-    </footer>
+  </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
