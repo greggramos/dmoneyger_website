@@ -27,7 +27,7 @@ html, body {
   background: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
-  padding: 0 20px 60px;
+  padding: 0 20px 20px;
   max-width: 360px;
   margin: 40px auto;
   text-align: center;
@@ -169,17 +169,11 @@ h4::after {
   display: flex;
   flex-direction: column;     /* stack vertically */
   align-items: flex-start;    /* align text/icons to left */
-  gap: 12px;                  /* spacing between items */
+  gap: 5px;                  /* spacing between items */
   font-family: var(--font-head);
   font-size: 1.5rem;
   color: var(--gold);
   align-items: center;
-}
-
-.feature {
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .icon {
@@ -193,7 +187,11 @@ h4::after {
   background-color: var(--gray);
 }
 
-
+.call-us {
+  text-align: center;
+  margin-top: 20px;
+  color: black;
+}
 
 .apply-btn:hover {
   background-color: var(--blue);
